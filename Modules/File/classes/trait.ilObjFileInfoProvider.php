@@ -103,11 +103,24 @@ trait ilObjFileInfoProvider
         $amount_of_downloads = null;
 
         if ($this->getGeneralSettings()->isShowAmountOfDownloads()) {
+        $amount_of_downloads = null;
+
+        if ($this->getGeneralSettings()->isShowAmountOfDownloads()) {
             $amount_of_downloads = $this->safeSprintf(
                 $this->getLanguage()->txt("amount_of_downloads_since"),
                 $this->getFileObj()->getAmountOfDownloads(),
                 $this->getFileObj()->getCreateDate(),
             );
+        }
+
+
+            
+	$amount_of_downloads = $this->safeSprintf(
+    	$this->getLanguage()->txt("amount_of_downloads_since"),
+    	$this->getFileObj()->getAmountOfDownloads(),
+    	$this->getFileObj()->getCreateDate(),
+	);
+>>>>>>> 4b48d9e775e (FileInfo: make sprintf robust against invalid translation placeholders (safeSprintf fallback))
 
         }
 
